@@ -6,6 +6,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 import plotly.express as px
 
+
+
 # Synthetic generation of data examples for training the model
 def generate_house_data(n_samples=100):
     np.random.seed(42)
@@ -41,6 +43,11 @@ def main():
                           min_value=500, 
                           max_value=5000, 
                           value=1500)
+
+    uploaded_file = st.file_uploader('Choose your .pdf file', type="pdf")
+
+    if uploaded_file is not None:
+        df = extract_data(uploaded_file)
     
     if st.button('Predict price'):
         # Perform prediction
