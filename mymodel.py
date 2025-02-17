@@ -44,10 +44,6 @@ def main():
                           max_value=5000, 
                           value=1500)
 
-    uploaded_file = st.file_uploader('Choose your .pdf file', type="pdf")
-
-    if uploaded_file is not None:
-        df = extract_data(uploaded_file)
     
     if st.button('Predict price'):
         # Perform prediction
